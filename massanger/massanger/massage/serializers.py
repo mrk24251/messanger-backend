@@ -1,14 +1,17 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+
+from account.serializer import ConversationListSerializer, MessageSerializer
 from .models import Massanger
 from django.contrib.auth import authenticate
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = User
-        fields = ['id', 'username','first_name','last_name']
+	Messanger = ConversationListSerializer(many=True, read_only=True)
+	Messages= MessageSerializer(many=True,read_only=True)
+	class Meta:
+		model = User
+		fields = ['id', 'username','first_name','last_name','Messanger','Messages']
 
 #Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
