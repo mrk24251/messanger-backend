@@ -14,6 +14,7 @@ class Massanger(models.Model):
     query = models.CharField(max_length=500, blank=False, default="")
     messages = models.CharField(max_length=500, blank=True)
     create_at=models.DateTimeField(auto_now_add=True)
+    token=models.CharField(max_length=500,default="")
 
 class ConversationList(models.Model):
     first_name=models.CharField(max_length=100,blank=True, default="",null=True)

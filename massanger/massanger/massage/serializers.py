@@ -41,7 +41,7 @@ class LoginSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Massanger
-		fields = ('id','first_name','last_name' ,'city', 'bio')
+		fields = ('id','first_name','last_name' ,'city', 'bio','token')
 
 	def update(self, instance, validated_data):
 		instance.first_name = validated_data.get('first_name', instance.first_name)
